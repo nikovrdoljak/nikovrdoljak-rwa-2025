@@ -18,4 +18,16 @@ export class HousingService {
     // tslint:disable-next-line
     console.log(firstName, lastName, email);
   }
+
+  addHouse(house: HousingLocation): Observable<HousingLocation> {
+    return this.http.post<HousingLocation>(this.url, house);
+  }
+
+  updateHouse(house: HousingLocation): Observable<HousingLocation> {
+    return this.http.put<HousingLocation>(`${this.url}/${house.id}`, house);
+  }
+
+  deleteHouse(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${id}`);
+  }
 }

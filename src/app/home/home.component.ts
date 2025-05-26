@@ -6,7 +6,7 @@ import { HousingService } from "../housing.service";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
-
+import { RouterModule } from "@angular/router";
 @Component({
   selector: "app-home",
   imports: [
@@ -15,6 +15,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
+    RouterModule,
   ],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],

@@ -1,0 +1,42 @@
+<h2>Add House</h2>
+<form (ngSubmit)="saveHouse()">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="home.name" name="name" matInput placeholder="Home name">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input [(ngModel)]="home.city" name="city" matInput placeholder="Home city">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <input [(ngModel)]="home.state" name="state" matInput placeholder="Home state">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Photo</mat-label>
+            <input [(ngModel)]="home.photo" name="photo" matInput placeholder="Home photo">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Avalibale units</mat-label>
+            <input type="number" [(ngModel)]="home.availableUnits" name="availableUnits" matInput
+                placeholder="Home available units">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-checkbox [(ngModel)]="home.wifi" name="wifi">Wifi</mat-checkbox>
+    </div>
+    <div>
+        <mat-slide-toggle [(ngModel)]="home.laundry" name="laundry">Laundry</mat-slide-toggle>
+    </div>
+    <button mat-raised-button color="primary" type="submit">Add</button>
+    <button mat-button type="button" (click)="cancel()">Cancel</button>
+</form>
