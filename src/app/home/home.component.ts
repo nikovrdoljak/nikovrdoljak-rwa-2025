@@ -3,9 +3,19 @@ import { CommonModule } from "@angular/common";
 import { HousingLocationComponent } from "../housing-location/housing-location.component";
 import { HousingLocation } from "../housinglocation";
 import { HousingService } from "../housing.service";
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 @Component({
   selector: "app-home",
-  imports: [CommonModule, HousingLocationComponent],
+  imports: [
+    CommonModule,
+    HousingLocationComponent,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+  ],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
 })

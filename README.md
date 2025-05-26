@@ -90,5 +90,9 @@ templateUrl: "./details.component.html",
 
 ## Angular Material
 https://material.angular.dev/
+
 https://material.angular.dev/guide/getting-started
 
+```
+ng add @angular/material
+```
