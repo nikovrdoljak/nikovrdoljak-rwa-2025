@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
+import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
+
 @Component({
   selector: "app-details",
   imports: [
@@ -17,6 +19,7 @@ import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.compone
     MatDialogModule,
     YesNoPipe,
     MatButtonModule,
+    MatSnackBarModule,
   ],
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.css"],
@@ -24,6 +27,7 @@ import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.compone
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   dialog = inject(MatDialog);
+  snackBar = inject(MatSnackBar);
   housingService = inject(HousingService);
   housingLocation?: HousingLocation;
   housingLocationId: string = "";
@@ -61,6 +65,15 @@ export class DetailsComponent {
           .subscribe(() => {
             this.router.navigate(["/"]);
           });
+        this.snackBar.open(
+          `Location "${this.housingLocation?.name}" deleted successfully!`,
+          "Close",
+          {
+            duration: 5000,
+            horizontalPosition: "center",
+            verticalPosition: "bottom",
+          }
+        );
       }
     });
   }
