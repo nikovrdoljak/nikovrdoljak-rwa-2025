@@ -5,9 +5,12 @@ import { HousingService } from "../housing.service";
 import { HousingLocation } from "../housinglocation";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { YesNoPipe } from "../yes-no.pipe";
+import { Router } from "@angular/router";
+import { MatButtonModule } from "@angular/material/button";
+
 @Component({
   selector: "app-details",
-  imports: [CommonModule, ReactiveFormsModule, YesNoPipe],
+  imports: [CommonModule, ReactiveFormsModule, YesNoPipe, MatButtonModule],
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.css"],
 })
@@ -15,17 +18,17 @@ export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
   housingLocation?: HousingLocation;
+  housingLocationId: string = "";
   applyForm = new FormGroup({
     firstName: new FormControl(""),
     lastName: new FormControl(""),
     email: new FormControl(""),
   });
-  housingLocationId = -1;
 
-  constructor() {
-    const housingLocationId = parseInt(this.route.snapshot.params["id"], 10);
+  constructor(private router: Router) {
+    this.housingLocationId = this.route.snapshot.params["id"];
     this.housingService
-      .getHousingLocationById(housingLocationId)
+      .getHousingLocationById(this.housingLocationId)
       .subscribe((housingLocation) => {
         this.housingLocation = housingLocation;
       });
@@ -36,5 +39,11 @@ export class DetailsComponent {
       this.applyForm.value.lastName ?? "",
       this.applyForm.value.email ?? ""
     );
+  }
+
+  deleteHouse(): void {
+    this.housingService.deleteHouse(this.housingLocationId).subscribe(() => {
+      this.router.navigate(["/"]);
+    });
   }
 }

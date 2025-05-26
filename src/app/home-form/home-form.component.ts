@@ -24,7 +24,7 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 })
 export class HomeFormComponent implements OnInit {
   home: HousingLocation = {
-    id: 0,
+    id: "",
     name: "",
     city: "",
     state: "",

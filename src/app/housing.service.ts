@@ -11,7 +11,7 @@ export class HousingService {
   getAllHousingLocations(): Observable<HousingLocation[]> {
     return this.http.get<HousingLocation[]>(this.url);
   }
-  getHousingLocationById(id: number): Observable<HousingLocation> {
+  getHousingLocationById(id: string): Observable<HousingLocation> {
     return this.http.get<HousingLocation>(`${this.url}/${id}`);
   }
   submitApplication(firstName: string, lastName: string, email: string) {
@@ -27,7 +27,7 @@ export class HousingService {
     return this.http.put<HousingLocation>(`${this.url}/${house.id}`, house);
   }
 
-  deleteHouse(id: number): Observable<void> {
+  deleteHouse(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 }
