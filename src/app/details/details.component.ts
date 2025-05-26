@@ -7,15 +7,23 @@ import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { YesNoPipe } from "../yes-no.pipe";
 import { Router } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
-
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 @Component({
   selector: "app-details",
-  imports: [CommonModule, ReactiveFormsModule, YesNoPipe, MatButtonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    YesNoPipe,
+    MatButtonModule,
+  ],
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.css"],
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
+  dialog = inject(MatDialog);
   housingService = inject(HousingService);
   housingLocation?: HousingLocation;
   housingLocationId: string = "";
@@ -42,8 +50,18 @@ export class DetailsComponent {
   }
 
   deleteHouse(): void {
-    this.housingService.deleteHouse(this.housingLocationId).subscribe(() => {
-      this.router.navigate(["/"]);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: "400px",
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result === true) {
+        this.housingService
+          .deleteHouse(this.housingLocationId)
+          .subscribe(() => {
+            this.router.navigate(["/"]);
+          });
+      }
     });
   }
 }

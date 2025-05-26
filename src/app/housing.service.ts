@@ -20,6 +20,7 @@ export class HousingService {
   }
 
   addHouse(house: HousingLocation): Observable<HousingLocation> {
+    house.id = crypto.randomUUID();
     return this.http.post<HousingLocation>(this.url, house);
   }
 
