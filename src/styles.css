@@ -4,9 +4,9 @@
   padding: 0;
 }
 
-body {
+/* body {
   font-family: 'Be Vietnam Pro', sans-serif;
-}
+} */
 :root {
   --primary-color: #605DC8;
   --secondary-color: #8B89E6;
@@ -21,3 +21,6 @@ button.primary {
   color: white;
   border-radius: 8px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
