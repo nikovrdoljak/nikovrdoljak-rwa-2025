@@ -99,6 +99,26 @@
       "availableUnits": 6,
       "wifi": true,
       "laundry": true
+    },
+    {
+      "id": "9a6aae20-6619-4976-80ad-687d4192ccde",
+      "name": "Vila",
+      "city": "Sukosan",
+      "state": "Zadarska",
+      "photo": "https://th.bing.com/th/id/R.8e6015dc8329736a003c68a07d2b2f55?rik=1Va0mYYuQVpbuw&riu=http%3a%2f%2fwww.kucasnova.com%2fwp-content%2fuploads%2f2015%2f03%2fllll1.jpg&ehk=yrjB5IDSvKQxU9FfdsQRWlJ2yRtx61SO5ENpGNPf7CY%3d&risl=&pid=ImgRaw&r=0",
+      "availableUnits": 4,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": "7072936b-0d64-4031-818a-7b95be490620",
+      "name": "",
+      "city": "",
+      "state": "",
+      "photo": "",
+      "availableUnits": 0,
+      "wifi": false,
+      "laundry": false
     }
   ]
 }

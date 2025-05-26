@@ -10,6 +10,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
+import { RouterModule } from "@angular/router";
 
 @Component({
   selector: "app-details",
@@ -20,6 +21,7 @@ import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
     YesNoPipe,
     MatButtonModule,
     MatSnackBarModule,
+    RouterModule,
   ],
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.css"],

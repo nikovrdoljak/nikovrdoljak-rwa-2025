@@ -22,7 +22,9 @@
     </ul>
   </section>
   <section>
-    <button mat-raised-button color="primary" type="button" (click)="deleteHouse()">Delete</button>
+    <button mat-raised-button color="primary" type="button" [routerLink]="['/edit', housingLocation?.id ]">Edit
+      house</button>
+    <button mat-button type=" button" (click)="deleteHouse()">Delete</button>
 
   </section>
   <section class="listing-apply">

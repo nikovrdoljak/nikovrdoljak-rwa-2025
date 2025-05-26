@@ -1,4 +1,4 @@
-<h2>Add House</h2>
+<h2>{{ isEdit ? 'Edit House' : 'Add House' }}</h2>
 <form (ngSubmit)="saveHouse()">
     <div>
         <mat-form-field appearance="fill">
@@ -37,6 +37,6 @@
     <div>
         <mat-slide-toggle [(ngModel)]="home.laundry" name="laundry">Laundry</mat-slide-toggle>
     </div>
-    <button mat-raised-button color="primary" type="submit">Add</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
     <button mat-button type="button" (click)="cancel()">Cancel</button>
 </form>
